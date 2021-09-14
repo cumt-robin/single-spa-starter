@@ -1,0 +1,43 @@
+<single-spa-router>
+  <a class="forkme" href="https://github.com/cumt-robin" target="_blank"><img src="https://qncdn.wbjiang.cn/fork_me.png" alt="Fork me on GitHub"></a>
+  <!--
+
+    This is the single-spa Layout Definition for your microfrontends.
+    See https://single-spa.js.org/docs/layout-definition/ for more information.
+
+  -->
+
+  <!-- Example layouts you might find helpful:
+
+  <nav>
+    <application name="@org/navbar"></application>
+  </nav>
+  <route path="settings">
+    <application name="@org/settings"></application>
+  </route>
+
+  -->
+  <main style="text-align: center;">
+    <div>
+      <a href="/app1">前往应用1（Vue）</a>
+      <a href="/app2" style="margin-left: 20px;">前往应用2（Vue）</a>
+      <a href="/app3" style="margin-left: 20px;">前往应用3（React）</a>
+      <a href="/app4" style="margin-left: 20px;">前往应用4（NG）</a>
+    </div>
+    <route path="app1">
+      <application name="@kulu/app1"></application>
+    </route>
+    <route path="app2">
+      <application name="@kulu/app2"></application>
+    </route>
+    <route path="app3">
+      <application name="@kulu/app3"></application>
+    </route>
+    <route path="app4">
+      <application name="@kulu/app4"></application>
+    </route>
+    <route default>
+      <application name="@single-spa/welcome"></application>
+    </route>
+  </main>
+</single-spa-router>
