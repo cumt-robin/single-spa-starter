@@ -4,7 +4,7 @@
     "jsx": "react-jsx",
     "declarationDir": "dist"
   },
-  "files": ["src/kulu-app3.tsx"],
+  "files": ["src/single-spa-starter-app3.tsx"],
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]
 }

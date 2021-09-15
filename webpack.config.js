@@ -1,9 +1,11 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const path = require("path");
 
 module.exports = (webpackConfigEnv, argv) => {
-  const orgName = "kulu";
+  const orgName = "single-spa-starter";
   const defaultConfig = singleSpaDefaults({
     orgName,
     projectName: "root-config",
@@ -22,6 +24,17 @@ module.exports = (webpackConfigEnv, argv) => {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           orgName,
         },
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, "./public"),
+            to: "./",
+            globOptions: {
+              // ignore: devMode ? ['mock/**/*'] : [],
+            },
+          },
+        ],
       }),
     ],
   });

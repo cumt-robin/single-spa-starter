@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/app4",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.single-spa.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,7 +39,7 @@
               "libraryName": "app4",
               "libraryTarget": "umd"
             },
-            "deployUrl": "http://localhost:8084/"
+            "deployUrl": "http://127.0.0.1:9504/"
           },
           "configurations": {
             "production": {

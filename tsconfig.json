@@ -1,6 +1,6 @@
 {
   "extends": "ts-config-single-spa",
-  "files": ["src/kulu-root-config.ts"],
+  "files": ["src/single-spa-starter-root-config.ts"],
   "compilerOptions": {
     "declarationDir": "dist"
   },

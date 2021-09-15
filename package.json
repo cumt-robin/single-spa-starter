@@ -1,15 +1,25 @@
 {
-  "name": "@kulu/root-config",
+  "name": "@single-spa-starter/root-config",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
+    "start:all": "concurrently npm:start npm:start:app*",
+    "start:app1": "cd apps/app1 && npm start",
+    "start:app2": "cd apps/app2 && npm start",
+    "start:app3": "cd apps/app3 && npm start",
+    "start:app4": "cd apps/app4 && npm start",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "prepare": "husky install",
-    "build": "concurrently npm:build:*",
+    "build": "concurrently npm:build:webpack npm:build:types",
     "build:webpack": "webpack --mode=production",
-    "build:types": "tsc"
+    "build:types": "tsc",
+    "build:all": "concurrently npm:build npm:build:app*",
+    "build:app1": "cd apps/app1 && npm run build",
+    "build:app2": "cd apps/app2 && npm run build",
+    "build:app3": "cd apps/app3 && npm run build",
+    "build:app4": "cd apps/app4 && npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -19,6 +29,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@babel/runtime": "^7.15.3",
     "concurrently": "^6.2.1",
+    "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -46,5 +57,5 @@
     "@types/webpack-env": "^1.16.2",
     "single-spa-layout": "1.6.0"
   },
-  "types": "dist/kulu-root-config.d.ts"
+  "types": "dist/single-spa-starter-root-config.d.ts"
 }

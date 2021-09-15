@@ -19,7 +19,7 @@
     This CSP allows any SSL-enabled host and for arbitrary eval(), but you should limit these directives further to increase your app's security.
     Learn more about CSP policies at https://content-security-policy.com/#directive
   -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';"> -->
   <meta name="importmap-type" content="systemjs-importmap" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
@@ -50,14 +50,28 @@
     {
       "imports": {
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-        "@kulu/app1": "http://localhost:8081/js/app.js",
-        "@kulu/app2": "http://localhost:8082/js/app.js",
-        "@kulu/app3": "http://localhost:8083/kulu-app3.js",
-        "@kulu/app4": "http://localhost:8084/main.js",
-        "@kulu/root-config": "//localhost:9000/kulu-root-config.js"
+        "@single-spa-starter/app1": "http://localhost:8081/app.js",
+        "@single-spa-starter/app2": "http://localhost:8082/app.js",
+        "@single-spa-starter/app3": "http://localhost:8083/single-spa-starter-app3.js",
+        "@single-spa-starter/app4": "http://localhost:8084/main.js",
+        "@single-spa-starter/root-config": "http://localhost:9000/single-spa-starter-root-config.js"
       }
     }
   </script>
+
+  <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
+          "@single-spa-starter/app1": "http://127.0.0.1:9501/app.js",
+          "@single-spa-starter/app2": "http://127.0.0.1:9502/app.js",
+          "@single-spa-starter/app3": "http://127.0.0.1:9503/single-spa-starter-app3.js",
+          "@single-spa-starter/app4": "http://127.0.0.1:9504/main.js",
+          "@single-spa-starter/root-config": "http://127.0.0.1:9500/single-spa-starter-root-config.js"
+        }
+      }
+    </script>
   <% } %>
 
   <!--
@@ -81,7 +95,7 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <script>
-    System.import('@kulu/root-config');
+    System.import('@single-spa-starter/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
